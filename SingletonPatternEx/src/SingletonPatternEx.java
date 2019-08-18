@@ -1,11 +1,16 @@
 class MakeACaptain {
-	private static MakeACaptain _captain = new MakeACaptain();
 
 	private MakeACaptain() {
 	}
+	
+	// Bill Pugh solution
+	private static class SingletonHelper {
+		//Nested class is referenced after getCaptain() is called
+		private static final MakeACaptain _captain = new MakeACaptain();
+	}
 
 	public static MakeACaptain getCaptain() {
-		return _captain;
+		return SingletonHelper._captain;
 	}
 }
 
